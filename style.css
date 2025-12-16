@@ -1,0 +1,17 @@
+div {
+      border: 1px solid black;
+      padding: 10px;
+    }
+
+ul li {
+    font-weight: bold;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.main-title {
+  color: rgb(223, 12, 54);
+}
+
