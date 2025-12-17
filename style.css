@@ -3,15 +3,51 @@ div {
       padding: 10px;
     }
 
+body{
+    background-color:rgb(255, 255, 255); 
+}
+
+
+.main-title {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    color: rgb(209, 73, 46);
+}
+
+.service-line {
+  width: 100%;
+  text-align: center;
+
+  border-top: 2px solid #333;
+  border-bottom: 2px solid #333;
+  border-left: none;
+  border-right: none;
+
+  background-color:rgb(216, 217, 217);
+  padding: 16px 0;
+  margin-top: 10px;
+
+  font-family: 'Playfair Display', serif;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+
+
+
+.free-quote {
+    font-size: 20px;
+}
+
+
 ul li {
     font-weight: bold;
 }
 
-body {
-  font-family: Arial, sans-serif;
-}
 
-.main-title {
-  color: rgb(223, 12, 54);
+
+
+h2 {
+    text-align: center;
 }
 
