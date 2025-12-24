@@ -26,32 +26,43 @@ We deliver clean, reliable, and professional landscaping week after week, so you
 <form>
     <div>
         <lable for = "name">Name:</lable>
-        <input type ="name" name ="name"/>
+        <input type ="name" name ="name" id="name" placeholder = "Name">
     </div>
 
     <div>
         <lable for = "email">Email:</lable>
-        <input type ="email" email ="email"/>
+        <input type ="email" email ="email" id="email" placeholder="Email">
+    
     </div>
 
-    <div></div>
+    <div>
+        <div class="form-floating"></div>
         <lable type = "phone">Phone:</lable>
-        <input type ="phone" phone ="phone"/>
+        <input type ="phone" phone ="phone" id="PhoneInput" placeholder="Phone">
     </div>
 
-    <div> 
-        <lable type = "address">Address:</lable>
-        <input type ="address" address ="address"/>
-    </div>
-</form>
+  <div class="form-floating">
+  <label for="addressInput">Address:</label>
+  <input type="email" class="form-control" id="addressInput" placeholder="Address">
+  
+</div>
+
+<div class="input-group">
+  <lable for ="tip"> Add tip:</lable>
+  <span class="input-group-text">$</span>
+  <input type="text" class="form-control">
+  <span class="input-group-text">.00</span>
+</div>
+
+</form >
 
 <h3>Choose a service:</h3>
 
 
 <form>
     <div>
-        <label type ="Mouch" >Mouch</label>
-        <input type ="checkbox" name="Mouch" value="Mouch"/>
+        <label type ="mulch installation" >Mulch Installation</label>
+        <input type ="checkbox" name="mulch installation" value="mulch installation"/>
     </div>
 
     <div>
@@ -60,32 +71,24 @@ We deliver clean, reliable, and professional landscaping week after week, so you
     </div>
 
     <div>
-        <label type = "Leafcleaning" >Leaf </label>
-        <input type ="checkbox" name="Leaf" value="Leaf"/>
+        <label type = "Leaf removal" >Leaf Removal </label>
+        <input type ="checkbox" name="leaf removal" value="leaf removal"/>
     </div>
 
      <div>
-        <label type = "Leafcleaning" >Leaf </label>
-        <input type ="checkbox" name="Leaf" value="Leaf"/>
+        <label type = "Snow plowing" >Snow Plowing </label>
+        <input type ="checkbox" name="Snow plowing" value="Snow plowing"/>
     </div>
   
     <div>
-        <label type = "Leafcleaning" >Leaf </label>
-        <input type ="checkbox" name="Leaf" value="Leaf"/>
+        <label type = "Artificial Turf Installation" >Artificial Turf Installation </label>
+        <input type ="checkbox" name="Artificial Turf Installation" value="Artificial Turf Installation"/>
     </div>
 
      <div>
-        <label type = "Leafcleaning" >Leaf </label>
-        <input type ="checkbox" name="Leaf" value="Leaf"/>
+        <label type = "Seasonal Cleanups" >Seasonal Cleanups </label>
+        <input type ="checkbox" name="Seasonal Cleanups" value="Seasonal Cleanups"/>
     </div>
-
-
-
-
-</form>
-
-
-
 
 
 
@@ -95,6 +98,40 @@ We deliver clean, reliable, and professional landscaping week after week, so you
 <form>
   <!-- your select + textarea here -->
   <button type="submit">Submit</button>
+<h3>Our Subscriptions</h3>
+
+<h4>Fall & Summer Options</h4>
+    <div>
+        <label type = "Mowing" > Weekly Mowing </label>
+       <button type="submit">Subscribe</button>
+
+    </div>
+
+ <div>
+        <label type = "Mowing" > Bi-Weekly Mowing </label>
+       <button type="submit">Subscribe</button>
+       
+    </div>
+
+ <div>
+        <label type = "Mowing" > Monthly Mowing </label>
+       <button type="submit">Subscribe</button>
+    </div>
+
+    <h4>Winter Options</h4>
+  
+     <div>
+        <label type = "Mowing" > Bi-Weekly Snow removal & Di-icing</label>
+       <button type="submit">Subscribe</button>
+    </div>
+     <div>
+        <label type = "Mowing" > Monthly Snow removal & Di-icing</label>
+       <button type="submit">Subscribe</button>
+    </div>
+
+
+</form>
+
 </form>
 
 
