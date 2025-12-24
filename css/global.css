@@ -1,0 +1,58 @@
+/* this is for the global variables, meaning anything that is repeated throughtout 
+   every page. I still need to move certain things into the other .css files. */
+
+
+div {
+      border: 1px solid black;
+      padding: 10px;
+    }
+
+body{
+    background-color:rgb(255, 255, 255); 
+}
+
+.site-header {
+  display: flex;
+  align-items: center;      /* vertical alignment */
+  justify-content: center;  /* centers title horizontally */
+  position: relative;       /* allows logo positioning */
+  padding: 20px;
+}
+
+.logo {
+  height: 60px;             /* control logo size */
+  width: auto;
+  position: absolute;
+  left: 20px;               /* locks logo to left */
+}
+
+.main-title {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  color: #8B2E2E;            /* your brand red */
+}
+
+
+.main-title {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    color: rgb(209, 73, 46);
+}
+
+
+
+
+.social-box {
+  margin-top:300px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid #333;
+  padding: 40px;
+  max-width: 800px;
+  text-align: center;
+}
+
+
+
+
+

@@ -1,0 +1,71 @@
+/* this is for the main page of the website. still need to add stuff to it. */
+
+.main-title {
+    text-align: center;
+    font-family: 'Bodoni Moda', serif;
+    font-size: 45px;
+    color: #8B2E2E;
+    
+
+}
+
+/*************************************************************/
+.service-line {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+
+  background-color: rgb(6, 6, 6);
+  padding: 16px 0;
+  margin-top: -15px;
+}
+
+/* Individual words */
+.service-line span {
+  display: inline-block;          /* hover only on text */
+  transition: color 0.25s ease;
+}
+
+/* Hover effect */
+.service-line span:hover {
+  color: #8B2E2E;
+  cursor: pointer;
+}
+
+/*************************************************************/
+.client-title {
+  text-decoration: underline;
+  font-size: 20px;
+}
+/*************************************************************/
+
+.service-list  {
+  font-weight: bold;
+  font-family: 'Playfair Display', serif;
+  list-style-type: disc;
+}
+
+.service-list li {
+  padding: 6px 0;
+  transition: color 0.25s ease;
+}
+
+.service-list li:hover {
+  color: #8B2E2E
+}
+/*************************************************************/
+
+.social-box {
+  margin-top:300px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid #333;
+  padding: 40px;
+  max-width: 800px;
+  text-align: center;
+}
+
+
+
