@@ -57,15 +57,33 @@
 }
 /*************************************************************/
 
-.social-box {
-  margin-top:300px;
-  margin-left: auto;
-  margin-right: auto;
-  border: 2px solid #333;
-  padding: 40px;
-  max-width: 800px;
-  text-align: center;
+.social-box .social-box {
+  border: none;
+  border-top: 1px solid #f3ebeb;
 }
 
 
+.hero { 
 
+  min-height :380px;
+  background-image:url("../images/pazhome.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* dark overlay so white text is readable */
+.hero-overlay{
+  min-height: 380px;
+  background: rgba(2, 2, 2, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.hero-content{
+  max-width: 900px;
+  color: white;
+  text-align: center;
+}
