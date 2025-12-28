@@ -1,62 +1,134 @@
-.pay-list{
+/* ===============================
+   PAYMENT LIST CONTAINER
+   =============================== */
+.pay-list {
   max-width: 900px;
   margin: 30px auto;
   display: grid;
   gap: 18px;
+  padding: 0 16px;
 }
 
+/* ===============================
+   PAYMENT ROW
+   =============================== */
+.pay-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-.pay-left{
+  padding: 18px 22px;
+  border-radius: 14px;
+
+  background: #f3eeee;
+  border: 1px solid rgb(239, 234, 234);
+
+  box-shadow: 0 6px 18px rgba(245, 244, 244, 0.08);
+}
+
+/* ===============================
+   LEFT SIDE (ICON + NAME)
+   =============================== */
+.pay-left {
   display: flex;
   align-items: center;
   gap: 14px;
 }
-.pay-row{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px 22px;
-  border: 1px solid rgb(237, 229, 229);
-  border-radius: 14px;
-  background: #f3eeee;
-}
-.pay-icon{
-  width: 54x;
+
+/* payment app icon */
+.pay-icon {
+  width: 54px;            /* FIXED typo */
   height: 54px;
   object-fit: cover;
-  border-radius: 14px; /* matches your “square icon” idea */
+  border-radius: 14px;
 }
 
-.pay-name{
+/* payment app name */
+.pay-name {
   font-size: 1.2rem;
   font-weight: 600;
+  color: #3f3d3d;
+
+  /* hero-style text pop */
+  text-shadow: 0 2px 6px hsl(0, 12%, 90%);
 }
 
-.pay-btn{
+/* ===============================
+   SELECT BUTTON
+   =============================== */
+.pay-btn {
   padding: 10px 18px;
   border: none;
   border-radius: 12px;
-  background: #7bd488;
+
+  background: hsl(6, 79%, 56%);
+  color: white;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+
   cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.pay-btn:hover{
-  background: #35b814;
+/* hover effect like your hero button */
+.pay-btn:hover {
+  background: #b75252e3;
+  transform: translateY(-2px);
 }
 
-.terms-row{
+/* ===============================
+   TERMS ROW
+   =============================== */
+.terms-row {
   display: flex;
   align-items: center;
   gap: 10px;
+
   font-size: 1.05rem;
+  margin-top: 24px;
+
+  color: #222;
+
+  /* subtle pop, less aggressive than pay-name */
+  text-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
-.terms-footer{
+/* checkbox */
+.terms-row input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #f02c09;
+}
+
+/* ===============================
+   TERMS FOOTER
+   =============================== */
+.terms-footer {
   margin-top: 40px;
   font-size: 0.95rem;
+  color: #444;
+  line-height: 1.6;
 }
 
-.terms-footer .copyright{
+.terms-footer .copyright {
+  margin-top: 10px;
   font-size: 0.8rem;
-  color: #a59d9d;
+  color: #968d8d;
+}
+
+/* ===============================
+   MOBILE RESPONSIVE
+   =============================== */
+@media (max-width: 640px) {
+  .pay-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .pay-btn {
+    width: 100%;
+    text-align: center;
+  }
 }
