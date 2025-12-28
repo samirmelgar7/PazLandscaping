@@ -3,134 +3,80 @@
 <head>
   <meta charset="UTF-8" />
   <title>Services</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/services.css">
 </head>
+<body class="services-bg">
 
+  <section class="quote-section">
+    <div class="quote-card">
 
+      <h2 class="quote-title">Get Your FREE Quote Today!</h2>
 
-<h2> Get Your FREE Quote Today!</h2>
-<form>
-    <div>
-        <lable for = "name">Name:</lable>
-        <input type ="name" name ="name" id="name" placeholder = "Name">
-    </div>
+      <form class="quote-form">
 
-    <div>
-        <lable for = "email">Email:</lable>
-        <input type ="email" email ="email" id="email" placeholder="Email">
-    
-    </div>
-
-    <div>
-        <div class="form-floating"></div>
-        <lable type = "phone">Phone:</lable>
-        <input type ="phone" phone ="phone" id="PhoneInput" placeholder="Phone">
-    </div>
-
-  <div class="form-floating">
-  <label for="addressInput">Address:</label>
-  <input type="email" class="form-control" id="addressInput" placeholder="Address">
-  
-</div>
-
-<div class="input-group">
-  <lable for ="tip"> Add tip:</lable>
-  <span class="input-group-text">$</span>
-  <input type="text" class="form-control">
-  <span class="input-group-text">.00</span>
-</div>
-
-</form >
-
-<h3>Choose a service:</h3>
-
-
-<form>
-    <div>
-        <label type ="mulch installation" >Mulch Installation</label>
-        <input type ="checkbox" name="mulch installation" value="mulch installation"/>
-    </div>
-
-    <div>
-        <label type = "Mowing" >Mowing</label>
-        <input type ="checkbox" name="Mowing" value="Mowing "/>
-    </div>
-
-    <div>
-        <label type = "Leaf removal" >Leaf Removal </label>
-        <input type ="checkbox" name="leaf removal" value="leaf removal"/>
-    </div
-
-     <div>
-        <label type = "Snow plowing" >Snow Plowing </label>
-        <input type ="checkbox" name="Snow plowing" value="Snow plowing"/>
-    </div>
-  
-    <div>
-        <label type = "Artificial Turf Installation" >Artificial Turf Installation </label>
-        <input type ="checkbox" name="Artificial Turf Installation" value="Artificial Turf Installation"/>
-    </div>
-
-     <div>
-        <label type = "Seasonal Cleanups" >Seasonal Cleanups </label>
-        <input type ="checkbox" name="Seasonal Cleanups" value="Seasonal Cleanups"/>
-    </div>
-
-
-<label for="details">Additional Details:</label>
-<textarea name="details" id="details" rows="1"></textarea>
-
-<form>
-  <!-- your select + textarea here -->
-  <button type="submit">Submit</button>
-<h3>Contracts Agreements!</h3>
-
-<h4>Fall & Summer Options</h4>
-    <div>
-        <label type = "Mowing" > 1 month </label>
-       <button type="submit">Subscribe</button>
-
-    </div>
-
- <div>
-        <label type = "Mowing" > 3 months </label>
-       <button type="submit">Subscribe</button>
-       
-    </div>
-
- <div>
-        <label type = "Mowing" > 6 months  </label>
-       <button type="submit">Subscribe</button>
-    </div>
-
-    <h4>Winter Options</h4>
-  
-     <div>
-        <label type = "Mowing" > Bi-Weekly Snow removal & Di-icing</label>
-       <button type="submit">Subscribe</button>
-    </div>
-     <div>
-        <label type = "Mowing" > Monthly Snow removal & Di-icing</label>
-       <button type="submit">Subscribe</button>
-    </div>
-
-
-</form>
-
-</form>
-
-
-                  </div>
-            </div>
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Name" />
         </div>
-        <div class="row">
-            <div class="col-12 col-lg-6">
-                <h2>Socials</h2>
-        
-                <p>Instagram | FaceBook | Tiktok</p>
-                <h2>Contact information</h2>
-                <p>Phone:401-***-**** | alejandropaz@pazlandscaping.com</p>
-            </div>
-</body>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Email" />
+        </div>
+
+        <div class="field">
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" placeholder="Phone" />
+        </div>
+
+        <div class="field">
+          <label for="address">Address</label>
+          <input id="address" name="address" type="text" placeholder="Address" />
+        </div>
+
+      
+        <h3 class="section-title">Choose a service</h3>
+
+        <div class="checks">
+          <label class="check">
+            <input type="checkbox" name="services" value="mulch">
+            <span>Mulch Installation</span>
+          </label>
+
+          <label class="check">
+            <input type="checkbox" name="services" value="mowing">
+            <span>Mowing</span>
+          </label>
+
+          <label class="check">
+            <input type="checkbox" name="services" value="leaf">
+            <span>Leaf Removal</span>
+          </label>
+
+          <label class="check">
+            <input type="checkbox" name="services" value="snow">
+            <span>Snow Plowing</span>
+          </label>
+
+      
+          <label class="check">
+            <input type="checkbox" name="services" value="cleanups">
+            <span>Seasonal Cleanups</span>
+          </label>
+        </div>
+
+        <div class="field">
+          <label for="details">Additional Details</label>
+          <textarea id="details" name="details" placeholder="Anything we should know?"></textarea>
+        </div>
+
+        <button class="submit-btn" type="submit">Request a Quote</button>
+
+      </form>
+
+    </div>
+  </section>
 
 </body>
 </html>
