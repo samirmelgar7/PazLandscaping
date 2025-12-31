@@ -1,3 +1,23 @@
+/* ============ BACKGROUND IMAGE + OVERLAY ============ */
+body.payment-bg {
+  margin: 0;
+  min-height: 100vh;
+  background: url("../images/pazhome.png") center / cover no-repeat fixed;
+
+  display: flex;
+  justify-content: center;
+  padding: 48px 16px;
+
+  font-family:  'Montserrat', sans-serif;
+  font-weight: 400;
+  letter-spacing: 2px;
+  font-size: 10;
+  text-transform: uppercase;
+  color: #ffffff; /* <-- This is where you set page text to white */
+}
+
+
+
 /* ===============================
    PAYMENT LIST CONTAINER
    =============================== */
@@ -5,100 +25,128 @@
   max-width: 900px;
   margin: 30px auto;
   display: grid;
-  gap: 18px;
+  gap: 24px;
   padding: 0 16px;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  border: none !important;
+  background: transparent !important;
 }
 
 /* ===============================
-   PAYMENT ROW
+   PAYMENT CARD
    =============================== */
 .pay-row {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 16px;
 
-  padding: 18px 22px;
-  border-radius: 14px;
+  padding: 24px;
+  border-radius: 18px;
 
-  background: #f3eeee;
-  border: 1px solid rgb(239, 234, 234);
+  background: #cac1c1;
+  border: none !important;            /* REMOVE BLACK BOX */
+  outline: none !important;
 
-  box-shadow: 0 6px 18px rgba(245, 244, 244, 0.08);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  text-align: center;
 }
 
 /* ===============================
-   LEFT SIDE (ICON + NAME)
+   ICON + NAME
    =============================== */
 .pay-left {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
 }
 
 /* payment app icon */
 .pay-icon {
-  width: 54px;            /* FIXED typo */
-  height: 54px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
-  border-radius: 14px;
+  border-radius: 24px;
+
+  border: none !important;            /* REMOVE IMAGE BORDER */
+  outline: none !important;
+  background: transparent !important;
+
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 /* payment app name */
 .pay-name {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #3f3d3d;
-
-  /* hero-style text pop */
-  text-shadow: 0 2px 6px hsl(0, 12%, 90%);
+  color: #ece7e7;
+  text-shadow: 0 2px 6px hsl(0, 2%, 13%);
 }
 
 /* ===============================
    SELECT BUTTON
    =============================== */
 .pay-btn {
-  padding: 10px 18px;
+  width: 100%;
+  max-width: 220px;
+
+  padding: 12px 18px;
   border: none;
-  border-radius: 12px;
+  border-radius: 14px;
 
-  background: hsl(6, 79%, 56%);
-  color: white;
+  background: hsl(0, 70%, 46%);
+  color: #fff;
 
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 600;
 
   cursor: pointer;
   transition: background 0.2s ease, transform 0.2s ease;
+
+  outline: none !important;
+  box-shadow: none;
 }
 
-/* hover effect like your hero button */
+/* hover */
 .pay-btn:hover {
   background: #b75252e3;
   transform: translateY(-2px);
+}
+
+/* keyboard focus (clean + accessible) */
+.pay-btn:focus-visible {
+  box-shadow: 0 0 0 3px rgba(240, 44, 9, 0.35);
 }
 
 /* ===============================
    TERMS ROW
    =============================== */
 .terms-row {
+  grid-column: 1 / -1;
+
   display: flex;
   align-items: center;
   gap: 10px;
 
   font-size: 1.05rem;
-  margin-top: 24px;
+  margin-top: 28px;
 
   color: #222;
-
-  /* subtle pop, less aggressive than pay-name */
   text-shadow: 0 2px 6px rgba(0,0,0,0.15);
+
+  border: none !important;
 }
 
 /* checkbox */
 .terms-row input[type="checkbox"] {
   width: 18px;
   height: 18px;
-  accent-color: #f02c09;
+  accent-color: #c22424;
 }
 
 /* ===============================
@@ -118,17 +166,23 @@
 }
 
 /* ===============================
-   MOBILE RESPONSIVE
+   GLOBAL BORDER HARD RESET
+   (Overrides global.css)
    =============================== */
-@media (max-width: 640px) {
-  .pay-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 14px;
-  }
+img,
+div,
+section,
+input,
+button {
+  border: none !important;
+  outline: none !important;
+}
 
-  .pay-btn {
-    width: 100%;
-    text-align: center;
+/* ===============================
+   RESPONSIVE
+   =============================== */
+@media (max-width: 9000px) {
+  .pay-list {
+    grid-template-columns: 1fr;
   }
 }
