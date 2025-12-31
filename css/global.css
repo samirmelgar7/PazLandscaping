@@ -1,11 +1,17 @@
 /* this is for the global variables, meaning anything that is repeated throughtout 
    every page. I still need to move certain things into the other .css files. */
 
+* {
+  box-sizing: border-box;
+}
 
-div {
-      border: 1px solid black;
-      padding: 10px;
-    }
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+
+
 
 body{
     background-color:rgb(255, 255, 255); 
@@ -25,20 +31,6 @@ body{
   position: absolute;
   left: 20px;               /* locks logo to left */
 }
-
-.main-title {
-  margin: 0;
-  font-family: 'Playfair Display', serif;
-  color: #8B2E2E;            /* your brand red */
-}
-
-
-.main-title {
-    text-align: center;
-    font-family: 'Playfair Display', serif;
-    color: rgb(209, 73, 46);
-}
-
 
 
 
