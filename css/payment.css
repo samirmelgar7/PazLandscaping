@@ -1,97 +1,102 @@
 /* ============ BACKGROUND IMAGE + OVERLAY ============ */
-body.payment-bg {
+body.payment-bg{
   margin: 0;
   min-height: 100vh;
   background: url("../images/pazhome.png") center / cover no-repeat fixed;
 
-  display: flex;
-  justify-content: center;
-  padding: 48px 16px;
-
-  font-family:  'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   letter-spacing: 2px;
-  font-size: 10;
   text-transform: uppercase;
-  color: #ffffff; /* <-- This is where you set page text to white */
+  color: #ffffff;
+
+  /* layout */
+  padding: 48px 16px;
 }
 
+body.payment-bg::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: -1;
+}
 
+/* ============ PAGE TITLE ============ */
+.pay-title{
+  text-align: center;
+  margin: 10px 0 8px;
+  font-size: 2.4rem;
+  letter-spacing: 4px;
+  text-shadow: 0 10px 30px rgba(0,0,0,0.45);
+}
 
-/* ===============================
-   PAYMENT LIST CONTAINER
-   =============================== */
-.pay-list {
-  max-width: 900px;
-  margin: 30px auto;
+.pay-sub{
+  text-align: center;
+  margin: 0 0 26px;
+  opacity: 0.9;
+  text-transform: none;
+  letter-spacing: 1px;
+}
+
+/* ============ PAYMENT GRID ============ */
+.pay-list{
+  max-width: 980px;
+  margin: 0 auto;
   display: grid;
-  gap: 24px;
-  padding: 0 16px;
+  gap: 22px;
+  padding: 0 6px;
 
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-
-  border: none !important;
-  background: transparent !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-/* ===============================
-   PAYMENT CARD
-   =============================== */
-.pay-row {
+/* ============ PAYMENT CARD ============ */
+.pay-row{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 14px;
 
-  padding: 24px;
+  padding: 26px 18px;
   border-radius: 18px;
 
-  background: #cac1c1;
-  border: none !important;            /* REMOVE BLACK BOX */
-  outline: none !important;
+  /* “glass” */
+  background: rgba(0,0,0,0.50);
+  backdrop-filter: blur(8px);
 
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.25);
+
   text-align: center;
 }
 
-/* ===============================
-   ICON + NAME
-   =============================== */
-.pay-left {
+.pay-left{
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
 }
 
-/* payment app icon */
-.pay-icon {
-  width: 100px;
-  height: 100px;
+.pay-icon{
+  width: 92px;
+  height: 92px;
   object-fit: cover;
-  border-radius: 24px;
-
-  border: none !important;            /* REMOVE IMAGE BORDER */
-  outline: none !important;
-  background: transparent !important;
+  border-radius: 22px;
 
   user-select: none;
   -webkit-user-drag: none;
 }
 
-/* payment app name */
-.pay-name {
-  font-size: 1.2rem;
+.pay-name{
+  font-size: 1.05rem;
   font-weight: 600;
-  color: #ece7e7;
-  text-shadow: 0 2px 6px hsl(0, 2%, 13%);
+  color: #f1eded;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.55);
 }
 
-/* ===============================
-   SELECT BUTTON
-   =============================== */
-.pay-btn {
+/* ============ BUTTON ============ */
+.pay-btn{
   width: 100%;
   max-width: 220px;
 
@@ -106,83 +111,102 @@ body.payment-bg {
   font-weight: 600;
 
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease;
-
-  outline: none !important;
-  box-shadow: none;
+  transition: transform 0.15s ease, background 0.15s ease;
 }
 
-/* hover */
-.pay-btn:hover {
-  background: #b75252e3;
+.pay-btn:hover{
+  background: rgba(183, 82, 82, 0.90);
   transform: translateY(-2px);
 }
 
-/* keyboard focus (clean + accessible) */
-.pay-btn:focus-visible {
+.pay-btn:focus-visible{
+  outline: none;
   box-shadow: 0 0 0 3px rgba(240, 44, 9, 0.35);
 }
 
-/* ===============================
-   TERMS ROW
-   =============================== */
-.terms-row {
-  grid-column: 1 / -1;
+/* ============ CHECK/CASH INFO BOX ============ */
+.pay-info{
+  max-width: 980px;
+  margin: 26px auto 10px;
+  padding: 18px 22px;
+  border-radius: 16px;
 
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  background: rgba(0,0,0,0.55);
+  border: 1px solid rgba(255,255,255,0.10);
+  backdrop-filter: blur(8px);
 
-  font-size: 1.05rem;
-  margin-top: 28px;
-
-  color: #222;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.15);
-
-  border: none !important;
+  text-transform: none;
+  letter-spacing: 0.5px;
 }
 
-/* checkbox */
-.terms-row input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  accent-color: #c22424;
+.pay-info h2{
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-/* ===============================
-   TERMS FOOTER
-   =============================== */
-.terms-footer {
-  margin-top: 40px;
-  font-size: 0.95rem;
-  color: #444;
+.pay-info p{
+  margin: 0 0 10px;
+  opacity: 0.95;
   line-height: 1.6;
 }
 
-.terms-footer .copyright {
-  margin-top: 10px;
-  font-size: 0.8rem;
-  color: #968d8d;
+.pay-info ul{
+  margin: 0;
+  padding-left: 18px;
+  line-height: 1.7;
+  opacity: 0.92;
 }
 
-/* ===============================
-   GLOBAL BORDER HARD RESET
-   (Overrides global.css)
-   =============================== */
-img,
-div,
-section,
-input,
-button {
-  border: none !important;
-  outline: none !important;
+/* ============ TERMS ============ */
+.terms-title{
+  max-width: 980px;
+  margin: 28px auto 10px;
+  padding: 0 6px;
+  letter-spacing: 2px;
 }
 
-/* ===============================
-   RESPONSIVE
-   =============================== */
-@media (max-width: 9000px) {
-  .pay-list {
-    grid-template-columns: 1fr;
-  }
+.terms-footer{
+  max-width: 980px;
+  margin: 0 auto 60px;
+  padding: 18px 22px;
+  border-radius: 16px;
+
+  background: rgba(0,0,0,0.55);
+  border: 1px solid rgba(255,255,255,0.10);
+  backdrop-filter: blur(8px);
+
+  text-transform: none;
+  letter-spacing: 0.5px;
 }
+
+.terms-footer p{
+  margin: 0 0 12px;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+.terms-footer ul{
+  margin: 0;
+  padding-left: 18px;
+  line-height: 1.75;
+  opacity: 0.92;
+}
+
+.terms-footer .copyright{
+  margin-top: 12px;
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1100px){
+  .pay-list{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 650px){
+  .pay-list{ grid-template-columns: 1fr; }
+  .pay-title{ font-size: 2rem; }
+}
+
