@@ -1,0 +1,173 @@
+
+ h1 {
+  color: #fff;
+  text-shadow: 0 3px 8px rgba(158, 156, 156, 0.7);
+}
+
+ .container p {
+  color: rgba(255, 255, 255, 0.9) !important;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.7);
+}
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)
+    ),
+   url("../images/pazhome.png") center / cover no-repeat fixed;
+;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  min-height: 100vh;
+}
+
+
+.container {
+  width: 80%;
+  margin: 50px auto;
+}
+
+.container h1 {
+  font-size: 40px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.container p {
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.contact-box {
+  background: #fff;
+  display: flex;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  overflow: hidden;
+}
+
+/* LEFT */
+.contact-left {
+  flex-basis: 60%;
+  padding: 50px 60px;
+}
+
+.contact-left h3 {
+  color: #cd3824;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.input-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  margin-bottom: 30px;
+}
+
+.input-group {
+  flex: 1;
+}
+
+label {
+  display: block;
+  color: rgba(0,0,0,0.55);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid rgba(0,0,0,0.25);
+  padding: 8px 0;
+  outline: none;
+  color: rgba(0,0,0,0.7);
+}
+
+textarea {
+  width: 100%;
+  border: 1px solid rgba(0,0,0,0.25);
+  outline: none;
+  padding: 10px;
+  margin-top: 10px;
+  resize: none;
+  color: rgba(0,0,0,0.7);
+}
+
+button {
+  background: #d14e1f;
+  width: 110px;
+  height: 38px;
+  border: none;
+  outline: none;
+  color: #fff;
+  border-radius: 30px;
+  margin-top: 20px;
+  cursor: pointer;
+  box-shadow: 0px 5px 15px rgba(244, 114, 70, 0.3);
+}
+
+button:hover {
+  background: #c40808;
+}
+
+/* RIGHT */
+.contact-right {
+  flex-basis: 40%;
+  padding: 50px 60px;
+  background: #0f0f0f;
+  color: #fff;
+}
+
+.contact-right h3 {
+  font-weight: 600;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td {
+  padding-top: 20px;
+  vertical-align: top;
+}
+
+td:first-child {
+  width: 80px;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .contact-box {
+    flex-direction: column;
+  }
+
+  .input-row {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
