@@ -1,7 +1,3 @@
-/* this is for the main page of the website. still need to add stuff to it. */
-
-
-/*************************************************************/
 .service-line {
   display: flex;
   justify-content: center;
@@ -21,8 +17,6 @@
 }
 
 
-
-
 /* Individual words */
 .service-line span {
   display: inline-block;          /* hover only on text */
@@ -36,9 +30,19 @@
   cursor: pointer;
 }
 
-
+/*--------------------------------------------------------------*/
 .site-header {
-  background-color: rgb(6, 6, 6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .nav-container {
@@ -48,11 +52,12 @@
 }
 
 .logo img {
-  height: 40px;   /* adjust size here */
+  height: 35px;   /* adjust size here */
   width: auto;
+  margin-top: 10px;
 }
 
-/*************************************************************/
+/*--------------------------------------------------------------*/
 
 .hero {
   min-height: 480px;
@@ -114,31 +119,175 @@
   transform: translateY(-2px);
 }
 
+/*--------------------------------------------------------------*/
+/* =======================
+   SERVICES SECTION (FIX)
+======================= */
 
+/* =======================
+   SERVICES SECTION (FIX)
+======================= */
 
-/*************************************************************/
-.client-title {
-  text-decoration: underline;
-  font-size: 20px;
-}
-/*************************************************************/
-
-.service-list  {
-  font-weight: bold;
-  font-family: 'Playfair Display', serif;
-  list-style-type: disc;
-}
-
-.service-list li {
-  padding: 6px 0;
-  transition: color 0.25s ease;
+.services-section {
+  background: white;
+  width: 100%;
+  padding: 60px 20px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.service-list li:hover {
-  color: #eae4e4
+.services-title {
+  font-size: 34px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  margin-bottom: 50px;
+  color: #111;
 }
-/*************************************************************/
+
+.services-grid {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px 80px;
+}
+
+.service-item h3 {
+  font-size: 15px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  position: relative;
+  display: inline-block;
+}
+
+/* underline */
+.service-item h3::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: #000;
+  margin: 10px auto 0;
+}
+
+.service-item p {
+  font-size: 11px;
+  line-height: 1.7;
+  color: #555;
+  max-width: 320px;
+  margin: 15px auto 0;
+}
 
 
 
+/* =======================
+   FOOTER / CONTACT
+======================= */
+
+.contact-section {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  background-color: black;
+  color: white;
+  width: 100%;
+  padding: 35px 40px;
+}
+
+/* GRID LAYOUT */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+/* LEFT: SERVICE HOURS */
+.service-hours {
+  text-align: left;
+}
+
+.service-hours h3 {
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.service-hours ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.service-hours li {
+  font-size: 13px;
+  margin-bottom: 8px;
+  opacity: 0.85;
+}
+
+/* MIDDLE: SOCIALS */
+.socials {
+  text-align: center;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 18px;
+}
+
+.social-icons img {
+  width: 28px;
+  height: 28px;
+  filter: invert(1);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.social-icons img:hover {
+  transform: scale(1.15);
+  opacity: 0.8;
+}
+
+/* RIGHT: CONTACT */
+.contact {
+  text-align: right;
+}
+
+.contact h3 {
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.contact p {
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+/* FIX BLUE LINKS */
+.contact a {
+  color: white;
+  text-decoration: none;
+}
+
+.contact a:hover {
+  opacity: 0.7;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .service-hours,
+  .contact {
+    text-align: center;
+  }
+}
 
