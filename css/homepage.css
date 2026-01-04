@@ -1,3 +1,7 @@
+/* ================================
+   TOP NAVIGATION (SERVICE LINE)
+================================ */
+
 .service-line {
   display: flex;
   justify-content: center;
@@ -10,25 +14,32 @@
   letter-spacing: 2px;
   text-transform: uppercase;
 
-  color: white;
   margin: 0;
-  padding: 0;        /* ⬅️ REMOVE the 30px */
+  padding: 0;
   line-height: 1;
 }
 
+/* NAV LINKS */
+.service-line a {
+  color: white;
+  text-decoration: none;
+  display: inline-block;
 
-/* Individual words */
-.service-line span {
-  display: inline-block;          /* hover only on text */
   transition: color 0.25s ease;
-  margin: 0 5px;
 }
 
-/* Hover effect */
-.service-line span:hover {
+/* HOVER EFFECT */
+.service-line a:hover {
   color: #8B2E2E;
   cursor: pointer;
 }
+
+/* OPTIONAL: ACTIVE PAGE (add class="active") */
+.service-line a.active {
+  color: #8B2E2E;
+}
+
+
 
 /*--------------------------------------------------------------*/
 .site-header {
