@@ -4,21 +4,18 @@
   <meta charset="UTF-8" />
   <title>Services</title>
 
-  
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-
-
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/global.css">
   <link rel="stylesheet" href="../css/services.css">
 </head>
-<body class="services-bg">
 
+<body class="services-bg">
   <section class="quote-section">
     <div class="quote-card">
-
       <h2 class="quote-title">Get Your FREE Quote Today!</h2>
 
-      <form class="quote-form">
+      <!-- ✅ added id="quoteForm" -->
+      <form class="quote-form" id="quoteForm">
 
         <div class="field">
           <label for="name">Name</label>
@@ -40,7 +37,6 @@
           <input id="address" name="address" type="text" placeholder="Address" />
         </div>
 
-      
         <h3 class="section-title">Choose a service</h3>
 
         <div class="checks">
@@ -64,7 +60,6 @@
             <span>Snow Plowing</span>
           </label>
 
-      
           <label class="check">
             <input type="checkbox" name="services" value="cleanups">
             <span>Seasonal Cleanups</span>
@@ -77,11 +72,83 @@
         </div>
 
         <button class="submit-btn" type="submit">Request a Quote</button>
-
       </form>
-
     </div>
   </section>
 
+  <!-- ✅ script MUST be inside body, right before closing body -->
+    <script>
+    const scriptURL = "https://script.google.com/macros/s/AKfycbyTpdWsElj6xLyznBPDD9eMhXbzOvqz8AeKvwXNaVtXm9pXwkNzjYd8WXiKHXs-a-I/exec";
+    const form = document.getElementById("quoteForm");
+    const btn = document.querySelector(".submit-btn");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      // Grab values
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const address = document.getElementById("address").value.trim();
+      const details = document.getElementById("details").value.trim();
+
+      const services = Array.from(document.querySelectorAll('input[name="services"]:checked'))
+        .map(cb => cb.value);
+
+      // Validation
+      if (!name || !email) {
+        alert("Please enter at least your name and email.");
+        return;
+      }
+
+      if (services.length === 0) {
+        alert("Please select at least one service.");
+        return;
+      }
+
+      const payload = { name, email, phone, address, services, details };
+
+      // Button loading state
+      const originalText = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = "Sending...";
+
+      try {
+        const res = await fetch(scriptURL, {
+          method: "POST",
+          body: JSON.stringify(payload),
+          headers: { "Content-Type": "text/plain;charset=utf-8" }
+        });
+
+        const text = await res.text();
+        console.log("Apps Script response:", text);
+
+        if (!res.ok) {
+          throw new Error(`Request failed with status ${res.status}`);
+        }
+
+        let data;
+        try {
+          data = JSON.parse(text);
+        } catch {
+          throw new Error("Response was not valid JSON. Check Apps Script return.");
+        }
+
+        if (!data.ok) {
+          throw new Error("Server did not return ok:true");
+        }
+
+        alert("✅ Quote request sent! We'll reach out soon.");
+        form.reset();
+
+      } catch (err) {
+        console.error("Submission error:", err);
+        alert(" Something went wrong. Check Console + Apps Script Executions.");
+      } finally {
+        btn.disabled = false;
+        btn.textContent = originalText;
+      }
+    });
+  </script>
 </body>
 </html>
