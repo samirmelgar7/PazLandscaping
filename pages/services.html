@@ -77,78 +77,65 @@
   </section>
 
   <!-- ✅ script MUST be inside body, right before closing body -->
-    <script>
-    const scriptURL = "https://script.google.com/macros/s/AKfycbyTpdWsElj6xLyznBPDD9eMhXbzOvqz8AeKvwXNaVtXm9pXwkNzjYd8WXiKHXs-a-I/exec";
-    const form = document.getElementById("quoteForm");
-    const btn = document.querySelector(".submit-btn");
+ <script>
+  const scriptURL = "https://script.google.com/macros/s/AKfycbw1oe8cUI2ikFQO1u1RkW2yrH8_E41cj7zMP6x5BYTD1MqKLKqUtg5sTAaHjdDvOpHf/exec";
 
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
+  const form = document.getElementById("quoteForm");
+  const btn = document.querySelector(".submit-btn");
 
-      // Grab values
-      const name = document.getElementById("name").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const phone = document.getElementById("phone").value.trim();
-      const address = document.getElementById("address").value.trim();
-      const details = document.getElementById("details").value.trim();
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-      const services = Array.from(document.querySelectorAll('input[name="services"]:checked'))
-        .map(cb => cb.value);
+    const payload = {
+      name: document.getElementById("name").value.trim(),
+      email: document.getElementById("email").value.trim(),
+      phone: document.getElementById("phone").value.trim(),
+      address: document.getElementById("address").value.trim(),
+      details: document.getElementById("details").value.trim(),
+      services: Array.from(
+        document.querySelectorAll('input[name="services"]:checked')
+      ).map(cb => cb.value)
+    };
 
-      // Validation
-      if (!name || !email) {
-        alert("Please enter at least your name and email.");
-        return;
-      }
+    if (!payload.name || !payload.email) {
+      alert("Please enter at least your name and email.");
+      return;
+    }
 
-      if (services.length === 0) {
-        alert("Please select at least one service.");
-        return;
-      }
+    if (payload.services.length === 0) {
+      alert("Please select at least one service.");
+      return;
+    }
 
-      const payload = { name, email, phone, address, services, details };
+    const originalText = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = "Sending...";
 
-      // Button loading state
-      const originalText = btn.textContent;
-      btn.disabled = true;
-      btn.textContent = "Sending...";
+    try {
+      const res = await fetch(scriptURL, {
+        method: "POST",
+        body: JSON.stringify(payload),
+        headers: { "Content-Type": "text/plain;charset=utf-8" }
+      });
 
-      try {
-        const res = await fetch(scriptURL, {
-          method: "POST",
-          body: JSON.stringify(payload),
-          headers: { "Content-Type": "text/plain;charset=utf-8" }
-        });
+      const text = await res.text();
+      console.log("Apps Script response:", text);
 
-        const text = await res.text();
-        console.log("Apps Script response:", text);
+      const data = JSON.parse(text);
+      if (!data.ok) throw new Error(data.error || "Unknown error");
 
-        if (!res.ok) {
-          throw new Error(`Request failed with status ${res.status}`);
-        }
+      alert("✅ Quote request sent! We'll reach out soon.");
+      form.reset();
 
-        let data;
-        try {
-          data = JSON.parse(text);
-        } catch {
-          throw new Error("Response was not valid JSON. Check Apps Script return.");
-        }
+    } catch (err) {
+      console.error(err);
+      alert("Error: " + err.message);
+    } finally {
+      btn.disabled = false;
+      btn.textContent = originalText;
+    }
+  });
+</script>
 
-        if (!data.ok) {
-          throw new Error("Server did not return ok:true");
-        }
-
-        alert("✅ Quote request sent! We'll reach out soon.");
-        form.reset();
-
-      } catch (err) {
-        console.error("Submission error:", err);
-        alert(" Something went wrong. Check Console + Apps Script Executions.");
-      } finally {
-        btn.disabled = false;
-        btn.textContent = originalText;
-      }
-    });
-  </script>
 </body>
 </html>
