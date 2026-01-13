@@ -1,3 +1,80 @@
+/* =======================
+   HEADER (PAYMENT PAGE)
+======================= */
+
+.site-header{
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 1000;          /* keep it above overlay/content */
+  width: 100%;
+  margin: 0;
+
+  background: rgba(0,0,0,0.92);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+
+  padding: 3px 0;
+
+  border-bottom: 1px solid rgba(0,0,0,0.92); /* edge-to-edge */
+}
+
+/* content container stays centered */
+.nav-container{
+  width: 100%;
+  padding: 0 40px;
+
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+}
+
+/* logo should NOT be absolute in global.css */
+.logo{
+  position: static;
+  justify-self: start;
+}
+
+.logo img{
+  height: 40px;
+  width: auto;
+  display: block;
+  margin: 0;
+}
+
+/* nav */
+.service-line{
+  justify-self: center;
+
+  display: flex;
+  align-items: center;
+  gap: 50px;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+.service-line a{
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.service-line a:hover,
+.service-line a.active{
+  color: #8B2E2E;
+}
+
+
 /* ============ BACKGROUND IMAGE + OVERLAY ============ */
 body.payment-bg{
   margin: 0;
@@ -10,22 +87,38 @@ body.payment-bg{
   text-transform: uppercase;
   color: #ffffff;
 
-  /* layout */
-  padding: 48px 16px;
+  position: relative;
 }
 
+
+
+
+/* overlay covers whole screen but DOES NOT block header clicks */
 body.payment-bg::before{
   content:"";
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.45);
-  z-index: -1;
+  z-index: 0;
+  pointer-events: none;   /* ✅ important */
 }
+
+/* header/content sit above overlay */
+body.payment-bg > *{
+  position: relative;
+  z-index: 1;
+}
+
+/* force header above everything */
+.site-header{
+  z-index: 3000;
+}
+
 
 /* ============ PAGE TITLE ============ */
 .pay-title{
   text-align: center;
-  margin: 10px 0 8px;
+  margin: 24px 0 8px;
   font-size: 2.4rem;
   letter-spacing: 4px;
   text-shadow: 0 10px 30px rgba(0,0,0,0.45);
@@ -64,6 +157,7 @@ body.payment-bg::before{
   /* “glass” */
   background: rgba(0,0,0,0.50);
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 
   border: 1px solid rgba(255,255,255,0.10);
   box-shadow: 0 14px 30px rgba(0,0,0,0.25);
@@ -209,4 +303,3 @@ body.payment-bg::before{
   .pay-list{ grid-template-columns: 1fr; }
   .pay-title{ font-size: 2rem; }
 }
-

@@ -4,17 +4,41 @@
   <meta charset="UTF-8" />
   <title>Services</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/global.css">
   <link rel="stylesheet" href="../css/services.css">
 </head>
 
 <body class="services-bg">
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="nav-container">
+
+      <div class="logo">
+        <img src="../images/PLlogo.png" alt="Paz Landscaping Logo">
+      </div>
+
+      <nav class="service-line">
+        <a href="homepage.html">Home</a>
+        <a href="services.html" class="active">Services</a>
+        <a href="payment.html">Payment</a>
+        <a href="Story.html">Our Story</a>
+        <a href="contact.html">Contact Us</a>
+      </nav>
+
+      <div class="nav-spacer"></div>
+    </div>
+  </header>
+  <!-- ===== END HEADER ===== -->
+
+
+  <!-- ===== PAGE CONTENT ===== -->
   <section class="quote-section">
+
     <div class="quote-card">
       <h2 class="quote-title">Get Your FREE Quote Today!</h2>
 
-      <!-- ✅ added id="quoteForm" -->
       <form class="quote-form" id="quoteForm">
 
         <div class="field">
@@ -74,68 +98,68 @@
         <button class="submit-btn" type="submit">Request a Quote</button>
       </form>
     </div>
+
   </section>
 
-  <!-- ✅ script MUST be inside body, right before closing body -->
- <script>
-  const scriptURL = "https://script.google.com/macros/s/AKfycbw1oe8cUI2ikFQO1u1RkW2yrH8_E41cj7zMP6x5BYTD1MqKLKqUtg5sTAaHjdDvOpHf/exec";
 
-  const form = document.getElementById("quoteForm");
-  const btn = document.querySelector(".submit-btn");
+  <!-- ===== FORM SCRIPT ===== -->
+  <script>
+    const scriptURL = "https://script.google.com/macros/s/AKfycbw1oe8cUI2ikFQO1u1RkW2yrH8_E41cj7zMP6x5BYTD1MqKLKqUtg5sTAaHjdDvOpHf/exec";
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+    const form = document.getElementById("quoteForm");
+    const btn = document.querySelector(".submit-btn");
 
-    const payload = {
-      name: document.getElementById("name").value.trim(),
-      email: document.getElementById("email").value.trim(),
-      phone: document.getElementById("phone").value.trim(),
-      address: document.getElementById("address").value.trim(),
-      details: document.getElementById("details").value.trim(),
-      services: Array.from(
-        document.querySelectorAll('input[name="services"]:checked')
-      ).map(cb => cb.value)
-    };
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
 
-    if (!payload.name || !payload.email) {
-      alert("Please enter at least your name and email.");
-      return;
-    }
+      const payload = {
+        name: document.getElementById("name").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        phone: document.getElementById("phone").value.trim(),
+        address: document.getElementById("address").value.trim(),
+        details: document.getElementById("details").value.trim(),
+        services: Array.from(
+          document.querySelectorAll('input[name="services"]:checked')
+        ).map(cb => cb.value)
+      };
 
-    if (payload.services.length === 0) {
-      alert("Please select at least one service.");
-      return;
-    }
+      if (!payload.name || !payload.email) {
+        alert("Please enter at least your name and email.");
+        return;
+      }
 
-    const originalText = btn.textContent;
-    btn.disabled = true;
-    btn.textContent = "Sending...";
+      if (payload.services.length === 0) {
+        alert("Please select at least one service.");
+        return;
+      }
 
-    try {
-      const res = await fetch(scriptURL, {
-        method: "POST",
-        body: JSON.stringify(payload),
-        headers: { "Content-Type": "text/plain;charset=utf-8" }
-      });
+      const originalText = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = "Sending...";
 
-      const text = await res.text();
-      console.log("Apps Script response:", text);
+      try {
+        const res = await fetch(scriptURL, {
+          method: "POST",
+          body: JSON.stringify(payload),
+          headers: { "Content-Type": "text/plain;charset=utf-8" }
+        });
 
-      const data = JSON.parse(text);
-      if (!data.ok) throw new Error(data.error || "Unknown error");
+        const text = await res.text();
+        const data = JSON.parse(text);
+        if (!data.ok) throw new Error(data.error || "Unknown error");
 
-      alert("✅ Quote request sent! We'll reach out soon.");
-      form.reset();
+        alert("✅ Quote request sent! We'll reach out soon.");
+        form.reset();
 
-    } catch (err) {
-      console.error(err);
-      alert("Error: " + err.message);
-    } finally {
-      btn.disabled = false;
-      btn.textContent = originalText;
-    }
-  });
-</script>
+      } catch (err) {
+        console.error(err);
+        alert("Error: " + err.message);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = originalText;
+      }
+    });
+  </script>
 
 </body>
 </html>

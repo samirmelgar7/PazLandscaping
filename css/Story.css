@@ -1,5 +1,91 @@
-/* ================= OUR STORY ================= */
 
+
+/* =========================
+   RESET
+========================= */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html, body{
+  height: 100%;
+}
+
+
+/* =========================
+   HEADER (ON TOP OF OVERLAY)
+========================= */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 10px;
+  background: rgba(0,0,0,0.92);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-bottom: 1px solid rgba(0,0,0,0.92);;
+}
+
+/* 3 columns: left (logo) | center (nav) | right (spacer) */
+.nav-container{
+  width: 100%;
+  padding: 0px;
+
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+}
+
+.logo img {
+  height: 35px;   /* adjust size here */
+  width: auto;
+  margin-top: 10px;
+}
+
+
+.service-line{
+  justify-self: center;
+
+  display: flex;
+  align-items: center;
+  gap: 50px;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  
+   margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+.service-line a{
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.25s ease, opacity 0.25s ease;
+}
+
+.service-line a:hover{
+  color: #8B2E2E;
+}
+
+/* =========================
+   CONTENT ABOVE OVERLAY
+========================= */
+.site-header,
+.container{
+  position: relative;
+  z-index: 1;
+}
 
 .our-story-section {
   background-color: #ffffff;
@@ -59,6 +145,120 @@
   object-fit: cover;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
+
+
+
+/* =======================
+   FOOTER / CONTACT
+======================= */
+
+.contact-section {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  background-color: black;
+  color: white;
+  width: 100%;
+  padding: 35px 40px;
+}
+
+/* GRID LAYOUT */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+/* LEFT: SERVICE HOURS */
+.service-hours {
+  text-align: left;
+}
+
+.service-hours h3 {
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.service-hours ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.service-hours li {
+  font-size: 13px;
+  margin-bottom: 8px;
+  opacity: 0.85;
+}
+
+/* MIDDLE: SOCIALS */
+.socials {
+  text-align: center;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 18px;
+}
+
+.social-icons img {
+  width: 28px;
+  height: 28px;
+  filter: invert(1);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.social-icons img:hover {
+  transform: scale(1.15);
+  opacity: 0.8;
+}
+
+/* RIGHT: CONTACT */
+.contact {
+  text-align: right;
+}
+
+.contact h3 {
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.contact p {
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+/* FIX BLUE LINKS */
+.contact a {
+  color: white;
+  text-decoration: none;
+}
+
+.contact a:hover {
+  opacity: 0.7;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .service-hours,
+  .contact {
+    text-align: center;
+  }
+}
+
+
 
 /* ================= RESPONSIVE ================= */
 

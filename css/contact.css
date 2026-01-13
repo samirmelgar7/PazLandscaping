@@ -1,64 +1,137 @@
 
- h1 {
-  color: #fff;
-  text-shadow: 0 3px 8px rgba(158, 156, 156, 0.7);
-}
-
- .container p {
-  color: rgba(255, 255, 255, 0.9) !important;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.7);
-}
 
 
 
-* {
+/* =========================
+   RESET
+========================= */
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-html, body {
+
+html, body{
   height: 100%;
 }
 
-body {
+/* =========================
+   FULL PAGE BACKGROUND + OVERLAY (FIX)
+========================= */
+body{
   margin: 0;
   font-family: "Poppins", sans-serif;
-
-  background:
-    linear-gradient(
-      rgba(0, 0, 0, 0.6),
-      rgba(0, 0, 0, 0.6)
-    ),
-   url("../images/pazhome.png") center / cover no-repeat fixed;
-;
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
+  background: url("../images/pazhome.png") center / cover no-repeat fixed;
+  position: relative;
   min-height: 100vh;
 }
 
-
-.container {
-  width: 80%;
-  margin: 50px auto;
+/* this ensures the dark shade covers ALL of the screen */
+body::before{
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 0;
 }
 
-.container h1 {
+/* =========================
+   HEADER (ON TOP OF OVERLAY)
+========================= */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 9px;
+  background: rgba(0,0,0,0.92);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-bottom: 1px solid rgba(0,0,0,0.92);;
+}
+/* 3 columns: left (logo) | center (nav) | right (spacer) */
+.nav-container{
+  width: 100%;
+  padding: 0px;
+
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+}
+
+
+.logo img{
+  height: 35px;
+  width: auto;
+  display: block;
+  margin: 10px;
+}
+
+.service-line{
+  justify-self: center;
+
+  display: flex;
+  align-items: center;
+  gap: 50px;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+.service-line a{
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.25s ease, opacity 0.25s ease;
+}
+
+.service-line a:hover{
+  color: #8B2E2E;
+}
+
+/* =========================
+   CONTENT ABOVE OVERLAY
+========================= */
+.site-header,
+.container{
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================
+   PAGE CONTENT
+========================= */
+.container{
+  width: 80%;
+  margin: 0 auto;
+  padding: 70px 0 80px; /* space below header */
+}
+
+.container h1{
+  color: #fff;
+  text-shadow: 0 3px 8px rgba(0,0,0,0.55);
   font-size: 40px;
   font-weight: 800;
   margin-bottom: 10px;
 }
 
-.container p {
-  color: rgba(0, 0, 0, 0.6);
+.container p{
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 2px 6px rgba(0,0,0,0.7);
   line-height: 1.6;
   margin-bottom: 30px;
 }
 
-.contact-box {
+.contact-box{
   background: #fff;
   display: flex;
   box-shadow: 0 10px 30px rgba(0,0,0,0.15);
@@ -66,36 +139,36 @@ body {
 }
 
 /* LEFT */
-.contact-left {
+.contact-left{
   flex-basis: 60%;
   padding: 50px 60px;
 }
 
-.contact-left h3 {
+.contact-left h3{
   color: #cd3824;
   font-weight: 600;
   margin-bottom: 30px;
 }
 
-.input-row {
+.input-row{
   display: flex;
   justify-content: space-between;
   gap: 60px;
   margin-bottom: 30px;
 }
 
-.input-group {
+.input-group{
   flex: 1;
 }
 
-label {
+label{
   display: block;
   color: rgba(0,0,0,0.55);
   margin-bottom: 8px;
   font-weight: 600;
 }
 
-input {
+input{
   width: 100%;
   border: none;
   border-bottom: 1px solid rgba(0,0,0,0.25);
@@ -104,7 +177,7 @@ input {
   color: rgba(0,0,0,0.7);
 }
 
-textarea {
+textarea{
   width: 100%;
   border: 1px solid rgba(0,0,0,0.25);
   outline: none;
@@ -114,7 +187,7 @@ textarea {
   color: rgba(0,0,0,0.7);
 }
 
-button {
+button{
   background: #d14e1f;
   width: 110px;
   height: 38px;
@@ -127,46 +200,51 @@ button {
   box-shadow: 0px 5px 15px rgba(244, 114, 70, 0.3);
 }
 
-button:hover {
+button:hover{
   background: #c40808;
 }
 
 /* RIGHT */
-.contact-right {
+.contact-right{
   flex-basis: 40%;
   padding: 50px 60px;
   background: #0f0f0f;
   color: #fff;
 }
 
-.contact-right h3 {
+.contact-right h3{
   font-weight: 600;
   margin-bottom: 30px;
   text-align: left;
 }
 
-table {
+table{
   width: 100%;
   border-collapse: collapse;
 }
 
-td {
+td{
   padding-top: 20px;
   vertical-align: top;
 }
 
-td:first-child {
+td:first-child{
   width: 80px;
   font-weight: 600;
 }
 
 /* Responsive */
-@media (max-width: 900px) {
-  .contact-box {
+@media (max-width: 900px){
+  .container{
+    width: 92%;
+    padding: 60px 0 70px;
+  }
+
+  .contact-box{
     flex-direction: column;
   }
 
-  .input-row {
+  .input-row{
     flex-direction: column;
     gap: 20px;
   }

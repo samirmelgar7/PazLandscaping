@@ -1,16 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  
   <meta charset="UTF-8">
+
   <title>Contact Us</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-<<<<<<< HEAD
   <link rel="stylesheet" href="/css/contact.css">
-=======
-<link rel="stylesheet" href="../css/contact.css">
->>>>>>> dea167bd65cd8910e0764a3d32b4500ff2696971
 </head>
+
+
+
+<body>
+
+<header class="site-header">
+  <div class="nav-container">
+
+    <div class="logo">
+      <img src="../images/PLlogo.png" alt="Paz Landscaping Logo">
+    </div>
+
+
+   <nav class="service-line">
+  <a href="homepage.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="payment.html">Payment</a>
+  <a href="Story.html">Our Story</a>
+  <a href="contact.html">Contact Us</a>
+</nav>
+
+
+  </div>
+</header>
 
 
 <body>
@@ -26,33 +49,39 @@
       <div class="contact-left">
         <h3>Send your request</h3>
 
-        <form>
+        <!-- ✅ ADD id="contactForm" -->
+        <form id="contactForm">
           <div class="input-row">
             <div class="input-group">
               <label>Name</label>
-              <input type="text" placeholder="Name" />
+              <!-- ✅ ADD id -->
+              <input id="c-name" type="text" placeholder="Name" />
             </div>
 
             <div class="input-group">
               <label>Phone</label>
-              <input type="text" placeholder="+1 401 *** ****" />
+              <!-- ✅ ADD id -->
+              <input id="c-phone" type="text" placeholder="+1 401 *** ****" />
             </div>
           </div>
 
           <div class="input-row">
             <div class="input-group">
               <label>Email</label>
-              <input type="email" placeholder="name@email.com" />
+              <!-- ✅ ADD id -->
+              <input id="c-email" type="email" placeholder="name@email.com" />
             </div>
 
             <div class="input-group">
               <label>Subject</label>
-              <input type="text" placeholder="Subject" />
+              <!-- ✅ ADD id -->
+              <input id="c-subject" type="text" placeholder="Subject" />
             </div>
           </div>
 
           <label>Message</label>
-          <textarea rows="5" placeholder="Your Message"></textarea>
+          <!-- ✅ ADD id -->
+          <textarea id="c-message" rows="5" placeholder="Your Message"></textarea>
 
           <button type="submit">SEND</button>
         </form>
@@ -81,5 +110,44 @@
       </div>
     </div>
   </div>
+
+  
+  <script>
+    const scriptURL = "https://script.google.com/macros/s/AKfycbzKp2FMKYMp0YUlGWG9MQ2sZ0auAQRUTXYnsQ-vFzm5nvzp-835mj5ksKSD1sDC5ZRS/exec"
+
+    contactForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const payload = {
+        formType: "contact",
+        name: document.getElementById("c-name").value.trim(),
+        phone: document.getElementById("c-phone").value.trim(),
+        email: document.getElementById("c-email").value.trim(),
+        subject: document.getElementById("c-subject").value.trim(),
+        message: document.getElementById("c-message").value.trim()
+      };
+
+      if (!payload.name || !payload.email || !payload.message) {
+        alert("Please fill in name, email, and message.");
+        return;
+      }
+
+      try {
+        await fetch(scriptURL, {
+          method: "POST",
+          mode: "no-cors",
+          body: JSON.stringify(payload),
+          headers: { "Content-Type": "text/plain;charset=utf-8" }
+        });
+
+        alert("✅ Message sent! We'll be in touch.");
+        contactForm.reset();
+
+      } catch (err) {
+        console.error(err);
+        alert(" Something went wrong. Please try again.");
+      }
+    });
+  </script>
 </body>
 </html>

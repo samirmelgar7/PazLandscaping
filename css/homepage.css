@@ -50,16 +50,16 @@
   top: 0;
   z-index: 1000;
   padding: 20px;
-  background: rgba(0, 0, 0, 0.92);
+  background: rgba(0,0,0,0.92);
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0,0,0,0.92);;
 }
 
 .nav-container {
   display: flex;
   align-items: center;
-  padding: 8px 40px;
+  padding: 8px 20px;
 }
 
 .logo img {
