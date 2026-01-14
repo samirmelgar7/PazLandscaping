@@ -1,79 +1,6 @@
-/* =======================
-   HEADER (PAYMENT PAGE)
-======================= */
-
-.site-header{
-  position: sticky;
-  top: 0;
-  left: 0;
-  right: 0;
-
-  z-index: 1000;          /* keep it above overlay/content */
-  width: 100%;
-  margin: 0;
-
-  background: rgba(0,0,0,0.92);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
-
-  padding: 3px 0;
-
-  border-bottom: 1px solid rgba(0,0,0,0.92); /* edge-to-edge */
-}
-
-/* content container stays centered */
-.nav-container{
-  width: 100%;
-  padding: 0 40px;
-
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-}
-
-/* logo should NOT be absolute in global.css */
-.logo{
-  position: static;
-  justify-self: start;
-}
-
-.logo img{
-  height: 40px;
-  width: auto;
-  display: block;
-  margin: 0;
-}
-
-/* nav */
-.service-line{
-  justify-self: center;
-
-  display: flex;
-  align-items: center;
-  gap: 50px;
-
-  font-family: 'Montserrat', sans-serif;
-  font-size: 10px;
-  font-weight: 400;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-}
-
-.service-line a{
-  color: #fff;
-  text-decoration: none;
-  transition: color 0.25s ease;
-}
-
-.service-line a:hover,
-.service-line a.active{
-  color: #8B2E2E;
-}
-
+/* ===============================
+   PAYMENT PAGE (NO HEADER STYLES)
+================================ */
 
 /* ============ BACKGROUND IMAGE + OVERLAY ============ */
 body.payment-bg{
@@ -90,30 +17,21 @@ body.payment-bg{
   position: relative;
 }
 
-
-
-
-/* overlay covers whole screen but DOES NOT block header clicks */
+/* overlay */
 body.payment-bg::before{
   content:"";
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.45);
   z-index: 0;
-  pointer-events: none;   /* ✅ important */
+  pointer-events: none;
 }
 
-/* header/content sit above overlay */
+/* keep content above overlay */
 body.payment-bg > *{
   position: relative;
   z-index: 1;
 }
-
-/* force header above everything */
-.site-header{
-  z-index: 3000;
-}
-
 
 /* ============ PAGE TITLE ============ */
 .pay-title{
@@ -154,7 +72,6 @@ body.payment-bg > *{
   padding: 26px 18px;
   border-radius: 18px;
 
-  /* “glass” */
   background: rgba(0,0,0,0.50);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -213,11 +130,6 @@ body.payment-bg > *{
   transform: translateY(-2px);
 }
 
-.pay-btn:focus-visible{
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(240, 44, 9, 0.35);
-}
-
 /* ============ CHECK/CASH INFO BOX ============ */
 .pay-info{
   max-width: 980px;
@@ -236,7 +148,6 @@ body.payment-bg > *{
 .pay-info h2{
   margin: 0 0 10px;
   font-size: 1.2rem;
-  text-transform: uppercase;
   letter-spacing: 2px;
 }
 
@@ -296,10 +207,16 @@ body.payment-bg > *{
 
 /* ============ RESPONSIVE ============ */
 @media (max-width: 1100px){
-  .pay-list{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pay-list{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 650px){
-  .pay-list{ grid-template-columns: 1fr; }
-  .pay-title{ font-size: 2rem; }
+  .pay-list{
+    grid-template-columns: 1fr;
+  }
+  .pay-title{
+    font-size: 2rem;
+  }
 }

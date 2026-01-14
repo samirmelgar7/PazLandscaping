@@ -1,80 +1,7 @@
-
-/* =======================
-   GLOBAL SITE HEADER
-======================= */
-
-.site-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  padding: 9px;
-  background: rgba(0,0,0,0.92);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
-  border-bottom: 1px solid rgba(0,0,0,0.92);;
-}
-
-/* inner layout container */
-.nav-container{
-  width: 100%;
-  padding: 0px;
-
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-}
-
-
-/* logo */
-.logo{
-  position: static;           /* IMPORTANT: not absolute */
-  justify-self: start;
-}
-
-.logo img {
-  height: 35px;   /* adjust size here */
-  width: auto;
-  margin-top: 10px;
-}
-
-/* nav links */
-.service-line{
-  justify-self: center;
-
-  display: flex;
-  align-items: center;
-  gap: 50px;
-
-  font-family: 'Montserrat', sans-serif;
-  font-size: 10px;
-  font-weight: 400;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-
-  
-   margin: 0;
-  padding: 0;
-  line-height: 1;
-}
-
-
-.service-line a{
-  color: #ffffff;
-  text-decoration: none;
-  transition: color 0.25s ease, opacity 0.25s ease;
-}
-
-.service-line a:hover{
-  color: #b92525;
-}
-
-
-
-
-
+/* ===============================
+   SERVICES PAGE ONLY
+   (NO HEADER STYLES HERE)
+================================ */
 
 /* ===============================
    BACKGROUND IMAGE + OVERLAY
@@ -110,7 +37,6 @@ body.services-bg > *{
   z-index: 1;
 }
 
-
 /* ===============================
    PAGE LAYOUT
 ================================ */
@@ -120,9 +46,8 @@ body.services-bg > *{
   display: flex;
   justify-content: center;
 
-  padding: 110px 16px 60px; /* space below header */
+  padding: 110px 16px 60px; /* space below global header */
 }
-
 
 /* ===============================
    QUOTE CARD
@@ -137,15 +62,15 @@ body.services-bg > *{
 
   border: none;
   box-shadow: 0 18px 50px rgba(198, 28, 28, 0.25);
+  
 }
 
-/* kill any inherited borders */
+/* kill inherited borders */
 .quote-card,
 .quote-card *{
   border-color: transparent !important;
   outline: none !important;
 }
-
 
 /* ===============================
    TITLES
@@ -165,7 +90,6 @@ body.services-bg > *{
   font-weight: 800;
   color: #ffffff;
 }
-
 
 /* ===============================
    FORM
@@ -216,7 +140,6 @@ body.services-bg > *{
   resize: vertical;
 }
 
-
 /* ===============================
    CHECKBOX GRID
 ================================ */
@@ -248,7 +171,6 @@ body.services-bg > *{
   color: #ffffff;
 }
 
-
 /* ===============================
    SUBMIT BUTTON
 ================================ */
@@ -276,7 +198,6 @@ body.services-bg > *{
 .submit-btn:active{
   transform: translateY(1px);
 }
-
 
 /* ===============================
    MOBILE

@@ -1,25 +1,73 @@
-/* this is for the global variables, meaning anything that is repeated throughtout 
-   every page. I still need to move certain things into the other .css files. */
-
+/* =========================
+   GLOBAL RESET
+========================= */
 * {
   box-sizing: border-box;
-}
-
-html, body {
   margin: 0;
   padding: 0;
 }
 
-
-body{
-    background-color:rgb(255, 255, 255); 
+html, body {
+  width: 100%;
 }
 
+/* =========================
+   GLOBAL HEADER (ALL PAGES)
+========================= */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 2000;
 
+  width: 100%;
+  background: rgba(0,0,0,0.92);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+
+  border-bottom: 1px solid rgba(0,0,0,0.92);
+}
+
+.nav-container {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+
+  width: 100%;
+  padding: 12px 40px;
+}
+
+/* LOGO */
 .logo {
-  height: 60px;             /* control logo size */
-  width: auto;
-  position: absolute;
-  left: 20px;               /* locks logo to left */
+  justify-self: start;
 }
 
+.logo img {
+  height: 35px;
+  width: auto;
+  display: block;
+}
+
+/* NAV */
+.service-line {
+  justify-self: center;
+
+  display: flex;
+  align-items: center;
+  gap: 50px;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.service-line a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.service-line a:hover {
+  color: #8B2E2E;
+}

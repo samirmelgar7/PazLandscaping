@@ -1,74 +1,11 @@
-/* ================================
-   TOP NAVIGATION (SERVICE LINE)
+/* ===============================
+   HOMEPAGE CONTENT ONLY
+   (HEADER IS GLOBAL)
 ================================ */
 
-.service-line {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 50px;
-
-  font-family: 'Montserrat', sans-serif;
-  font-size: 10px;
-  font-weight: 400;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-}
-
-/* NAV LINKS */
-.service-line a {
-  color: white;
-  text-decoration: none;
-  display: inline-block;
-
-  transition: color 0.25s ease;
-}
-
-/* HOVER EFFECT */
-.service-line a:hover {
-  color: #8B2E2E;
-  cursor: pointer;
-}
-
-/* OPTIONAL: ACTIVE PAGE (add class="active") */
-.service-line a.active {
-  color: #8B2E2E;
-}
-
-
-
-/*--------------------------------------------------------------*/
-.site-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  padding: 20px;
-  background: rgba(0,0,0,0.92);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
-  border-bottom: 1px solid rgba(0,0,0,0.92);;
-}
-
-.nav-container {
-  display: flex;
-  align-items: center;
-  padding: 8px 20px;
-}
-
-.logo img {
-  height: 35px;   /* adjust size here */
-  width: auto;
-  margin-top: 10px;
-}
-
-/*--------------------------------------------------------------*/
+/* ===============================
+   HERO
+================================ */
 
 .hero {
   min-height: 480px;
@@ -86,10 +23,8 @@
   padding: 40px 20px;
 }
 
-
 .hero p {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
   font-size: 20px;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -98,7 +33,6 @@
   margin-bottom: 20px;
   line-height: 1.6;
   font-weight: 800;
-  
 }
 
 .hero p,
@@ -111,12 +45,11 @@
   margin-top: 20px;
   padding: 14px 32px;
 
-  background-color: #8b2e2e; /* deep red */
+  background-color: #8b2e2e;
   color: white;
 
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
-  font-weight: 400;
   letter-spacing: 2px;
   text-transform: uppercase;
   text-decoration: none;
@@ -130,14 +63,9 @@
   transform: translateY(-2px);
 }
 
-/*--------------------------------------------------------------*/
-/* =======================
-   SERVICES SECTION (FIX)
-======================= */
-
-/* =======================
-   SERVICES SECTION (FIX)
-======================= */
+/* ===============================
+   SERVICES SECTION
+================================ */
 
 .services-section {
   background: white;
@@ -172,7 +100,6 @@
   display: inline-block;
 }
 
-/* underline */
 .service-item h3::after {
   content: "";
   display: block;
@@ -190,16 +117,13 @@
   margin: 15px auto 0;
 }
 
-
-
-/* =======================
-   FOOTER / CONTACT
-======================= */
+/* ===============================
+   FOOTER
+================================ */
 
 .contact-section {
   font-family: 'Montserrat', sans-serif;
   font-size: 10px;
-  font-weight: 400;
   letter-spacing: 2px;
   background-color: black;
   color: white;
@@ -207,23 +131,21 @@
   padding: 35px 40px;
 }
 
-/* GRID LAYOUT */
 .footer-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   max-width: 1200px;
   margin: 0 auto;
-  align-items: start;
 }
 
-/* LEFT: SERVICE HOURS */
 .service-hours {
   text-align: left;
 }
 
-.service-hours h3 {
+.service-hours h3,
+.socials h3,
+.contact h3 {
   font-size: 14px;
-  letter-spacing: 2px;
   margin-bottom: 12px;
 }
 
@@ -239,7 +161,6 @@
   opacity: 0.85;
 }
 
-/* MIDDLE: SOCIALS */
 .socials {
   text-align: center;
 }
@@ -263,14 +184,8 @@
   opacity: 0.8;
 }
 
-/* RIGHT: CONTACT */
 .contact {
   text-align: right;
-}
-
-.contact h3 {
-  font-size: 14px;
-  margin-bottom: 12px;
 }
 
 .contact p {
@@ -278,7 +193,6 @@
   margin-bottom: 10px;
 }
 
-/* FIX BLUE LINKS */
 .contact a {
   color: white;
   text-decoration: none;
@@ -288,7 +202,10 @@
   opacity: 0.7;
 }
 
-/* MOBILE */
+/* ===============================
+   MOBILE
+================================ */
+
 @media (max-width: 768px) {
   .footer-grid {
     grid-template-columns: 1fr;
@@ -301,4 +218,3 @@
     text-align: center;
   }
 }
-

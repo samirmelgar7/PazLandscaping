@@ -1,42 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  
   <meta charset="UTF-8">
+  <title>Contact Us | Paz Landscaping</title>
 
-  <title>Contact Us</title>
-
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/contact.css">
+
+  <!-- GLOBAL HEADER STYLES (REQUIRED) -->
+  <link rel="stylesheet" href="../css/global.css">
+
+  <!-- PAGE STYLES -->
+  <link rel="stylesheet" href="../css/contact.css">
 </head>
 
-
-
 <body>
 
-<header class="site-header">
-  <div class="nav-container">
+  <!-- ================= HEADER ================= -->
+  <header class="site-header">
+    <div class="nav-container">
 
-    <div class="logo">
-      <img src="../images/PLlogo.png" alt="Paz Landscaping Logo">
+      <div class="logo">
+        <img src="../images/PLlogo.png" alt="Paz Landscaping Logo">
+      </div>
+
+      <nav class="service-line">
+        <a href="homepage.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="payment.html">Payment</a>
+        <a href="story.html">Our Story</a>
+        <a href="contact.html" class="active">Contact Us</a>
+      </nav>
+
     </div>
+  </header>
 
-
-   <nav class="service-line">
-  <a href="homepage.html">Home</a>
-  <a href="services.html">Services</a>
-  <a href="payment.html">Payment</a>
-  <a href="Story.html">Our Story</a>
-  <a href="contact.html">Contact Us</a>
-</nav>
-
-
-  </div>
-</header>
-
-
-<body>
+  <!-- ================= PAGE CONTENT ================= -->
   <div class="container">
     <h1>Connect With Us</h1>
     <p>
@@ -45,22 +44,20 @@
     </p>
 
     <div class="contact-box">
+
       <!-- LEFT -->
       <div class="contact-left">
         <h3>Send your request</h3>
 
-        <!-- ✅ ADD id="contactForm" -->
         <form id="contactForm">
           <div class="input-row">
             <div class="input-group">
               <label>Name</label>
-              <!-- ✅ ADD id -->
               <input id="c-name" type="text" placeholder="Name" />
             </div>
 
             <div class="input-group">
               <label>Phone</label>
-              <!-- ✅ ADD id -->
               <input id="c-phone" type="text" placeholder="+1 401 *** ****" />
             </div>
           </div>
@@ -68,19 +65,16 @@
           <div class="input-row">
             <div class="input-group">
               <label>Email</label>
-              <!-- ✅ ADD id -->
               <input id="c-email" type="email" placeholder="name@email.com" />
             </div>
 
             <div class="input-group">
               <label>Subject</label>
-              <!-- ✅ ADD id -->
               <input id="c-subject" type="text" placeholder="Subject" />
             </div>
           </div>
 
           <label>Message</label>
-          <!-- ✅ ADD id -->
           <textarea id="c-message" rows="5" placeholder="Your Message"></textarea>
 
           <button type="submit">SEND</button>
@@ -102,18 +96,19 @@
           </tr>
           <tr>
             <td>Address</td>
-            <td>
-              2121 Hartford Ave, Johnston, RI 02919
-            </td>
+            <td>2121 Hartford Ave, Johnston, RI 02919</td>
           </tr>
         </table>
       </div>
+
     </div>
   </div>
 
-  
+  <!-- ================= SCRIPT ================= -->
   <script>
-    const scriptURL = "https://script.google.com/macros/s/AKfycbzKp2FMKYMp0YUlGWG9MQ2sZ0auAQRUTXYnsQ-vFzm5nvzp-835mj5ksKSD1sDC5ZRS/exec"
+    const scriptURL = "https://script.google.com/macros/s/AKfycbzKp2FMKYMp0YUlGWG9MQ2sZ0auAQRUTXYnsQ-vFzm5nvzp-835mj5ksKSD1sDC5ZRS/exec";
+
+    const contactForm = document.getElementById("contactForm");
 
     contactForm.addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -142,12 +137,12 @@
 
         alert("✅ Message sent! We'll be in touch.");
         contactForm.reset();
-
       } catch (err) {
         console.error(err);
-        alert(" Something went wrong. Please try again.");
+        alert("Something went wrong. Please try again.");
       }
     });
   </script>
+
 </body>
 </html>
